@@ -31,10 +31,8 @@
 
 html,body{width:100%;height:100%;background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;overflow:hidden}
 
-/* ── Layout ── */
 #app{display:grid;grid-template-rows:58px 1fr;grid-template-columns:1fr 380px;height:100vh}
 
-/* ── Header ── */
 header{
   grid-column:1/-1;
   display:flex;align-items:center;gap:20px;
@@ -65,7 +63,6 @@ header{
 .dot{width:5px;height:5px;border-radius:50%;background:var(--success);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(0.8)}}
 
-/* ── Canvas ── */
 #canvas-wrap{position:relative;background:var(--bg);overflow:hidden}
 #three-canvas{display:block;width:100%;height:100%}
 .hint{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);
@@ -79,7 +76,6 @@ header{
 .cc-surf{font-size:9px;color:var(--text3);letter-spacing:2px;font-family:'JetBrains Mono',monospace;text-transform:uppercase}
 .cc-tile{font-size:12px;font-weight:700;color:var(--text);margin-top:2px}
 
-/* ── Panel ── */
 #panel{
   background:var(--surface);
   border-left:1px solid var(--border);
@@ -89,8 +85,8 @@ header{
 .panel-inner{flex:1;overflow-y:auto;overflow-x:hidden}
 .panel-inner::-webkit-scrollbar{width:2px}
 .panel-inner::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+.panel-inner::-webkit-scrollbar-track{background:transparent}
 
-/* ── Section ── */
 .sec{padding:16px 18px;border-bottom:1px solid var(--border)}
 .sec-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px}
 .sec-lbl{font-size:9px;letter-spacing:2.5px;color:var(--text3);text-transform:uppercase;
@@ -101,7 +97,6 @@ header{
   border:1px solid rgba(157,141,255,0.15);padding:2px 7px;border-radius:4px;
   font-family:'JetBrains Mono',monospace;letter-spacing:1px}
 
-/* Surface tabs */
 .surf-tabs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px}
 .surf-btn{padding:9px 4px;border-radius:8px;border:1px solid var(--border);
   background:var(--surface2);color:var(--text3);font-size:10px;
@@ -112,7 +107,6 @@ header{
 .surf-btn.active{border-color:transparent;color:#0a0a10}
 .surf-btn.active::before{opacity:1}
 
-/* Tile cards */
 .tile-list{display:flex;flex-direction:column;gap:7px}
 .tc{display:flex;align-items:center;gap:11px;padding:10px 11px;border-radius:10px;
   border:1.5px solid var(--border);background:var(--surface2);cursor:pointer;
@@ -123,10 +117,6 @@ header{
 .tc.sel::after{opacity:1}
 .tprev{width:44px;height:44px;border-radius:7px;flex-shrink:0;position:relative;overflow:hidden}
 .tprev img{width:100%;height:100%;object-fit:cover;display:block}
-.tprev-canvas{width:100%;height:100%;display:block}
-.tp0{background:linear-gradient(135deg,#e8dfd0,#c9bba4 40%,#d8cfc0 70%,#bfb09a)}
-.tp1{background:linear-gradient(135deg,#2a4a6e,#3a6090 40%,#1e3a58 70%,#4a78a8)}
-.tp2{background:linear-gradient(135deg,#8b4a3a,#a05a45 40%,#7a3e30 70%,#c07060)}
 .tile-info{flex:1;min-width:0}
 .tname{font-size:12px;font-weight:700;color:var(--text);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .tsub{font-size:9px;color:var(--text3);font-family:'JetBrains Mono',monospace;letter-spacing:0.5px}
@@ -140,7 +130,6 @@ header{
   color:transparent;transition:all .22s;flex-shrink:0}
 .tc.sel .chk{background:var(--accent);border-color:var(--accent);color:#0a0a10;font-size:10px}
 
-/* Upload zone */
 .upload-zone{
   border:1.5px dashed var(--border2);border-radius:10px;padding:16px;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
@@ -153,7 +142,6 @@ header{
 .uz-txt{font-size:11px;font-weight:700;color:var(--text2);letter-spacing:0.3px}
 .uz-sub{font-size:9px;color:var(--text3);font-family:'JetBrains Mono',monospace}
 
-/* Color customizer */
 .color-row{display:flex;gap:7px;align-items:center;margin-bottom:10px}
 .color-lbl{font-size:10px;color:var(--text2);font-family:'JetBrains Mono',monospace;width:54px;flex-shrink:0}
 .color-picker-wrap{position:relative;display:flex;align-items:center;gap:8px;flex:1}
@@ -165,19 +153,13 @@ header{
   background:var(--surface2);border:1px solid var(--border);border-radius:5px;
   padding:4px 8px;width:78px;outline:none;transition:border-color .2s}
 .color-hex:focus{border-color:var(--accent)}
-.color-presets{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}
-.cpreset{width:22px;height:22px;border-radius:5px;cursor:pointer;border:1.5px solid transparent;
-  transition:all .2s;flex-shrink:0}
-.cpreset:hover,.cpreset.active{border-color:#fff;transform:scale(1.15)}
 
-/* Tile properties */
 .prop-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px}
 .prop-btn{padding:7px 6px;border-radius:7px;border:1px solid var(--border);
   background:var(--surface2);color:var(--text3);font-size:9px;
   font-family:'JetBrains Mono',monospace;cursor:pointer;transition:all .2s;letter-spacing:0.5px}
 .prop-btn.active{border-color:var(--teal);color:var(--teal);background:rgba(93,212,196,0.07)}
 
-/* Pattern */
 .pat-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
 .pb{padding:9px 0;border-radius:7px;border:1px solid var(--border);
   background:var(--surface2);color:var(--text3);font-size:10px;
@@ -189,7 +171,6 @@ header{
 .pb.active{border-color:rgba(157,141,255,0.4);color:var(--accent2)}
 .pb.active::before{opacity:1}
 
-/* Slider */
 .slider-wrap{margin-bottom:10px}
 .slider-lbl{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
 .slider-lbl-txt{font-size:10px;color:var(--text3);font-family:'JetBrains Mono',monospace;letter-spacing:0.5px}
@@ -202,7 +183,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;heigh
   border-radius:50%;background:var(--accent);cursor:pointer;
   border:2px solid var(--bg);box-shadow:0 0 0 1px var(--accent),0 0 10px rgba(232,201,122,0.3)}
 
-/* Grout */
 .grout-grid{display:flex;gap:6px;flex-wrap:wrap}
 .gd{width:30px;height:30px;border-radius:7px;cursor:pointer;border:2px solid transparent;
   transition:all .22s;position:relative}
@@ -214,10 +194,8 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;heigh
 .grout-custom{display:flex;align-items:center;gap:8px;margin-top:8px}
 .grout-label{font-size:9px;color:var(--text3);font-family:'JetBrains Mono',monospace}
 
-/* Roughness/metalness */
 .mat-sliders{display:flex;flex-direction:column;gap:10px}
 
-/* Apply btn */
 .apply-row{padding:14px 18px;border-top:1px solid var(--border);display:flex;gap:8px}
 .apply-btn{flex:1;padding:12px;border-radius:9px;border:none;
   background:linear-gradient(135deg,var(--accent) 0%,#d4a840 50%,var(--accent) 100%);
@@ -232,7 +210,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;heigh
   display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0}
 .share-btn:hover{border-color:var(--accent2);color:var(--accent2)}
 
-/* Status */
 .status-bar{padding:9px 18px;background:var(--surface2);border-top:1px solid var(--border);
   display:flex;gap:8px;align-items:center}
 .stxt{font-size:9px;color:var(--text3);font-family:'JetBrains Mono',monospace;
@@ -240,7 +217,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;heigh
 .stxt.active-msg{color:var(--success)}
 .status-sep{width:1px;height:10px;background:var(--border2);margin:0 2px}
 
-/* Toast */
 .toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(20px);
   background:var(--surface3);border:1px solid var(--border2);padding:10px 20px;
   border-radius:10px;font-size:11px;font-family:'JetBrains Mono',monospace;
@@ -248,7 +224,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;heigh
   pointer-events:none;z-index:999;backdrop-filter:blur(10px)}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
-/* Loading */
 #loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
   justify-content:center;background:var(--bg);z-index:200;gap:16px;transition:opacity .6s}
 #loading.gone{opacity:0;pointer-events:none}
@@ -260,26 +235,14 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;heigh
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:1px}
 .lsub{font-size:10px;color:var(--text3);font-family:'JetBrains Mono',monospace;letter-spacing:2px}
 
-/* Scrollbar for panel */
-.panel-inner::-webkit-scrollbar-track{background:transparent}
-
-/* Edit tile name inline */
 .tname-edit{background:var(--surface3);border:1px solid var(--accent);border-radius:4px;
   color:var(--text);font-family:'Syne',sans-serif;font-size:12px;font-weight:700;
   padding:1px 5px;outline:none;width:100%}
 
-/* Tile type badge */
 .tile-type-badge{font-size:8px;padding:1px 5px;border-radius:3px;font-family:'JetBrains Mono',monospace;letter-spacing:0.5px}
 .badge-custom{background:rgba(157,141,255,0.15);color:var(--accent2);border:1px solid rgba(157,141,255,0.2)}
 .badge-built{background:rgba(232,201,122,0.1);color:var(--accent);border:1px solid rgba(232,201,122,0.2)}
 
-/* Collapse section */
-.sec-toggle{cursor:pointer;user-select:none}
-.sec-toggle .arrow{transition:transform .2s;display:inline-block;font-size:10px;color:var(--text3)}
-.sec.collapsed .arrow{transform:rotate(-90deg)}
-.sec.collapsed .sec-body{display:none}
-
-/* Color tab system */
 .color-tabs{display:flex;gap:5px;margin-bottom:12px}
 .ctab{flex:1;padding:6px 4px;border-radius:6px;border:1px solid var(--border);
   background:transparent;color:var(--text3);font-size:9px;cursor:pointer;
@@ -326,7 +289,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;heigh
   <div id="panel">
     <div class="panel-inner">
 
-      <!-- Surface -->
       <div class="sec">
         <div class="sec-hd">
           <div class="sec-lbl">Surface</div>
@@ -338,7 +300,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;heigh
         </div>
       </div>
 
-      <!-- Tile Collection -->
       <div class="sec">
         <div class="sec-hd">
           <div class="sec-lbl">Tile Collection</div>
@@ -346,7 +307,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;heigh
         </div>
         <div class="tile-list" id="tile-list"></div>
 
-        <!-- Upload -->
         <div class="upload-zone" id="upload-zone">
           <input type="file" id="tile-upload" accept="image/webp,image/png,image/jpeg" multiple onchange="handleUpload(this.files)">
           <div class="uz-icon">🖼️</div>
@@ -355,7 +315,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;heigh
         </div>
       </div>
 
-      <!-- Tile Customize -->
       <div class="sec" id="custom-sec">
         <div class="sec-hd">
           <div class="sec-lbl">Tile Properties</div>
@@ -368,7 +327,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;heigh
           <button class="ctab" onclick="switchColorTab('material',this)">Material</button>
         </div>
 
-        <!-- Image tab -->
         <div class="ctab-panel active" id="ctab-image">
           <div style="display:flex;gap:7px;align-items:stretch">
             <div id="tile-preview-large" style="width:90px;height:90px;border-radius:10px;border:1.5px solid var(--border2);flex-shrink:0;overflow:hidden;background:var(--surface2)"></div>
@@ -389,10 +347,8 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;heigh
           </div>
         </div>
 
-        <!-- Colors tab -->
         <div class="ctab-panel" id="ctab-colors">
-          <div style="font-size:9px;color:var(--text3);font-family:'JetBrains Mono',monospace;margin-bottom:8px;letter-spacing:1px">TILE BASE COLORS (for generated/built-in tiles)</div>
-          
+          <div style="font-size:9px;color:var(--text3);font-family:'JetBrains Mono',monospace;margin-bottom:8px;letter-spacing:1px">TILE BASE COLORS (for built-in procedural tiles)</div>
           <div class="color-row">
             <div class="color-lbl">Base</div>
             <div class="color-picker-wrap">
@@ -420,12 +376,10 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;heigh
               <input class="color-hex" id="hex-light" value="#f0e8d8" oninput="hexColorInput('light',this.value)" maxlength="7" spellcheck="false">
             </div>
           </div>
-
           <div style="font-size:9px;color:var(--text3);font-family:'JetBrains Mono',monospace;margin:10px 0 7px;letter-spacing:1px">QUICK PALETTES</div>
           <div style="display:flex;flex-direction:column;gap:6px" id="palette-list"></div>
         </div>
 
-        <!-- Material tab -->
         <div class="ctab-panel" id="ctab-material">
           <div class="mat-sliders">
             <div class="slider-wrap">
@@ -453,7 +407,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;heigh
         </div>
       </div>
 
-      <!-- Pattern -->
       <div class="sec">
         <div class="sec-hd">
           <div class="sec-lbl">Layout Pattern</div>
@@ -473,7 +426,6 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;heigh
         </div>
       </div>
 
-      <!-- Grout -->
       <div class="sec">
         <div class="sec-hd">
           <div class="sec-lbl">Grout Color</div>
@@ -497,7 +449,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;heigh
         </div>
       </div>
 
-    </div><!-- /panel-inner -->
+    </div>
 
     <div class="apply-row">
       <button class="apply-btn" onclick="applyAll()">Apply to All Surfaces</button>
@@ -517,30 +469,12 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;heigh
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 // =========================================================
-//  TILE DEFINITIONS (built-in)
+//  TILE DEFINITIONS
 // =========================================================
 var TILES = [
-  {
-    id:'builtin-0', name:'Calacatta Marble', sub:'Polished · Natural Stone',
-    type:'builtin',
-    base:0xd4c5a9, dark:0xb8a888, light:0xf0e8d8,
-    rough:0.15, metal:0.04, vein:0.16, finish:'polished',
-    image:null
-  },
-  {
-    id:'builtin-1', name:'Aegean Blue', sub:'Glazed · Ceramic',
-    type:'builtin',
-    base:0x2e4f7a, dark:0x1a3358, light:0x5080b0,
-    rough:0.35, metal:0.08, vein:0.1, finish:'matte',
-    image:null
-  },
-  {
-    id:'builtin-2', name:'Terra Rossa', sub:'Matte · Handcrafted',
-    type:'builtin',
-    base:0x904540, dark:0x6a2e28, light:0xc07060,
-    rough:0.72, metal:0.02, vein:0.08, finish:'matte',
-    image:null
-  },
+  { id:'builtin-0', name:'Calacatta Marble', sub:'Polished · Natural Stone', type:'builtin', base:0xd4c5a9, dark:0xb8a888, light:0xf0e8d8, rough:0.15, metal:0.04, vein:0.16, finish:'polished', image:null },
+  { id:'builtin-1', name:'Aegean Blue',      sub:'Glazed · Ceramic',         type:'builtin', base:0x2e4f7a, dark:0x1a3358, light:0x5080b0, rough:0.35, metal:0.08, vein:0.1,  finish:'matte',    image:null },
+  { id:'builtin-2', name:'Terra Rossa',      sub:'Matte · Handcrafted',      type:'builtin', base:0x904540, dark:0x6a2e28, light:0xc07060, rough:0.72, metal:0.02, vein:0.08, finish:'matte',    image:null },
 ];
 
 var PALETTES = [
@@ -569,7 +503,6 @@ var surfaces = {
 // =========================================================
 var renderer, scene, camera;
 var surfMeshes = {};
-var textureCache = {};
 
 // =========================================================
 //  INIT
@@ -608,7 +541,6 @@ function init() {
     camera.updateProjectionMatrix();
   });
 
-  // Drag-drop on upload zone
   var uz = document.getElementById('upload-zone');
   uz.addEventListener('dragover',function(e){e.preventDefault();uz.classList.add('drag')});
   uz.addEventListener('dragleave',function(){uz.classList.remove('drag')});
@@ -629,23 +561,18 @@ function init() {
 // =========================================================
 function buildLights() {
   scene.add(new THREE.AmbientLight(0x8890b8, 0.6));
-
   var sun = new THREE.DirectionalLight(0xfff8e8, 2.0);
   sun.position.set(6, 11, 6);
   sun.castShadow = true;
-  sun.shadow.mapSize.width  = 2048;
-  sun.shadow.mapSize.height = 2048;
+  sun.shadow.mapSize.width = 2048; sun.shadow.mapSize.height = 2048;
   sun.shadow.camera.left=-12;sun.shadow.camera.right=12;
   sun.shadow.camera.top=12;sun.shadow.camera.bottom=-12;
   sun.shadow.bias=-0.001;
   scene.add(sun);
-
   var fill = new THREE.PointLight(0x3050cc,0.8,16);
   fill.position.set(-5,5,-3); scene.add(fill);
-
   var warm = new THREE.PointLight(0xff7744,0.5,12);
   warm.position.set(4,1.5,4); scene.add(warm);
-
   var ceiling = new THREE.PointLight(0xffffff,1.2,12);
   ceiling.position.set(0,5.0,0); scene.add(ceiling);
 }
@@ -653,7 +580,7 @@ function buildLights() {
 // =========================================================
 //  ROOM
 // =========================================================
-var RW=9,RH=5.5,RD=8;
+var RW=9, RH=5.5, RD=8;
 
 function buildRoom() {
   var fGeo=new THREE.PlaneGeometry(RW,RD);
@@ -788,29 +715,205 @@ function buildSideLamp(){
 }
 
 // =========================================================
-//  TEXTURE GENERATOR
+//  TEXTURE & MATERIAL BUILDING
 // =========================================================
+
 function numToCSS(num){return '#'+num.toString(16).padStart(6,'0');}
 function hexToNum(h){return parseInt(h.replace('#',''),16);}
 
-function makeTileTexture(surfKey) {
-  var s = surfaces[surfKey];
-  var td = getTileById(s.tileId);
-  if (!td) return null;
+// ── buildMat: builds a THREE.MeshStandardMaterial for a given surface key.
+// For CUSTOM IMAGE tiles: bakes a high-quality canvas at exactly the image's
+// native resolution × scale, so every pixel stays correct. No resampling artifacts.
+// For BUILT-IN procedural tiles: uses the existing canvas-drawn approach.
+function buildMat(surfKey) {
+  var s  = surfaces[surfKey];
+  var td = getTileById(s.tileId) || TILES[0];
+  var maxAniso = renderer ? renderer.capabilities.getMaxAnisotropy() : 4;
 
-  var size = 512;
-  var n = s.scale;
+  if (td.image) {
+    return buildImageMat(s, td, maxAniso);
+  } else {
+    return buildProceduralMat(s, td, maxAniso);
+  }
+}
+
+// ── buildImageMat: image tile path ──
+// Key fix: we create a bake canvas whose single "cell" is the FULL image at
+// its native size. We tile n×n of these cells with grout lines, producing a
+// texture where each tile instance = one full copy of the uploaded image.
+function buildImageMat(s, td, maxAniso) {
+  var n       = s.scale;          // number of tiles across each axis
+  var srcW    = td.image.width;   // native image size (we stamped to 512×512)
+  var srcH    = td.image.height;
+
+  // Resolution of the bake: each cell = srcW×srcH pixels, n cells across.
+  // Cap total bake size to 4096 to stay within GPU limits.
+  var cellPx  = srcW;             // one cell = one full tile image
+  var bakeRaw = cellPx * n;
+  var MAX_BAKE = 4096;
+  var scale   = bakeRaw > MAX_BAKE ? MAX_BAKE / bakeRaw : 1.0;
+  var BAKE    = Math.round(bakeRaw * scale);
+  var cell    = Math.round(cellPx * scale); // scaled cell size in pixels
+
+  var groutPx = Math.max(1.5, cell * 0.055); // grout line width
+
+  // Parse grout colour
+  var gr = parseInt(s.grout.slice(1,3),16);
+  var gg = parseInt(s.grout.slice(3,5),16);
+  var gb = parseInt(s.grout.slice(5,7),16);
+  var groutRGBA = 'rgba('+gr+','+gg+','+gb+',1)';
+
+  var bakeCV = document.createElement('canvas');
+  bakeCV.width  = BAKE;
+  bakeCV.height = BAKE;
+  var bctx = bakeCV.getContext('2d');
+  bctx.imageSmoothingEnabled = true;
+  bctx.imageSmoothingQuality = 'high';
+
+  // Fill grout colour as base
+  bctx.fillStyle = groutRGBA;
+  bctx.fillRect(0, 0, BAKE, BAKE);
+
+  // Draw one tile cell: clip to inner area (leaving grout border), draw image to fill it
+  function drawCell(tx, ty, tw, th, rotated) {
+    var gx = tx + groutPx;
+    var gy = ty + groutPx;
+    var gw = tw - groutPx * 2;
+    var gh = th - groutPx * 2;
+    if (gw < 1 || gh < 1) return;
+    bctx.save();
+    bctx.beginPath();
+    bctx.rect(gx, gy, gw, gh);
+    bctx.clip();
+    if (rotated) {
+      bctx.translate(gx + gw/2, gy + gh/2);
+      bctx.rotate(Math.PI/2);
+      // Draw image filling the rotated cell (swap w/h since rotated 90°)
+      bctx.drawImage(td.image, 0,0,srcW,srcH, -gh/2, -gw/2, gh, gw);
+    } else {
+      // Draw full image stretched to fill cell — each tile = exactly one image instance
+      bctx.drawImage(td.image, 0, 0, srcW, srcH, gx, gy, gw, gh);
+    }
+    bctx.restore();
+  }
+
+  var pat  = s.pattern;
+  var row, col;
+
+  if (pat === 'grid') {
+    for (row = 0; row < n; row++)
+      for (col = 0; col < n; col++)
+        drawCell(col*cell, row*cell, cell, cell, false);
+
+  } else if (pat === 'brick') {
+    var brickH = cell * 0.5;
+    var brows  = Math.ceil(BAKE / brickH) + 2;
+    for (row = 0; row < brows; row++) {
+      var off = (row % 2 === 0) ? 0 : cell * 0.5;
+      for (col = -1; col < n + 1; col++)
+        drawCell(col*cell + off, row*brickH, cell, brickH, false);
+    }
+
+  } else if (pat === 'diagonal') {
+    bctx.save();
+    bctx.translate(BAKE/2, BAKE/2);
+    bctx.rotate(Math.PI/4);
+    bctx.translate(-BAKE/2, -BAKE/2);
+    for (row = -2; row < n+3; row++)
+      for (col = -2; col < n+3; col++)
+        drawCell(col*cell, row*cell, cell, cell, false);
+    bctx.restore();
+
+  } else if (pat === 'herring') {
+    var hbw = cell * 0.5, hbh = cell;
+    var hcols = Math.ceil(BAKE/hbw)+4, hrows = Math.ceil(BAKE/hbh)+4;
+    for (row = -2; row < hrows; row++) {
+      for (col = -2; col < hcols; col++) {
+        bctx.save();
+        var cx = col*hbw + hbw/2, cy = row*hbh + hbh/2;
+        bctx.translate(cx, cy);
+        if ((col+row) % 2 === 0) {
+          drawCell(-hbh/2, -hbw/2, hbh, hbw, false);
+        } else {
+          bctx.rotate(Math.PI/2);
+          drawCell(-hbh/2, -hbw/2, hbh, hbw, false);
+        }
+        bctx.restore();
+      }
+    }
+  }
+
+  // Draw grout lines on top for clean sharp lines
+  bctx.fillStyle = groutRGBA;
+  if (pat === 'grid') {
+    for (row = 0; row <= n; row++) bctx.fillRect(0, row*cell - groutPx/2, BAKE, groutPx);
+    for (col = 0; col <= n; col++) bctx.fillRect(col*cell - groutPx/2, 0, groutPx, BAKE);
+
+  } else if (pat === 'brick') {
+    var brickH2 = cell * 0.5;
+    var tbrows  = Math.ceil(BAKE/brickH2) + 2;
+    for (row = 0; row <= tbrows; row++) bctx.fillRect(0, row*brickH2 - groutPx/2, BAKE, groutPx);
+    for (row = 0; row < tbrows; row++) {
+      var rowOff = (row % 2 === 0) ? 0 : cell * 0.5;
+      for (col = -1; col <= n+1; col++)
+        bctx.fillRect(col*cell + rowOff - groutPx/2, row*brickH2, groutPx, brickH2 + groutPx);
+    }
+
+  } else if (pat === 'diagonal') {
+    bctx.save();
+    bctx.translate(BAKE/2,BAKE/2); bctx.rotate(Math.PI/4); bctx.translate(-BAKE/2,-BAKE/2);
+    for (row = 0; row <= n+4; row++) bctx.fillRect(0, (row-2)*cell - groutPx/2, BAKE, groutPx);
+    for (col = 0; col <= n+4; col++) bctx.fillRect((col-2)*cell - groutPx/2, 0, groutPx, BAKE);
+    bctx.restore();
+
+  } else if (pat === 'herring') {
+    var hbw2=cell*0.5, hbh2=cell;
+    var hhrows=Math.ceil(BAKE/hbh2)+4, hhcols=Math.ceil(BAKE/hbw2)+4;
+    for (row = -2; row < hhrows; row++) {
+      for (col = -2; col < hhcols; col++) {
+        bctx.save();
+        var cx3=col*hbw2+hbw2/2, cy3=row*hbh2+hbh2/2;
+        bctx.translate(cx3,cy3);
+        var hw3=hbh2/2, hh3=hbw2/2;
+        bctx.strokeStyle=groutRGBA; bctx.lineWidth=groutPx*2;
+        if ((col+row) % 2 === 0) {
+          bctx.strokeRect(-hw3,-hh3,hbh2,hbw2);
+        } else {
+          bctx.rotate(Math.PI/2);
+          bctx.strokeRect(-hw3,-hh3,hbh2,hbw2);
+        }
+        bctx.restore();
+      }
+    }
+  }
+
+  var finalTex = new THREE.CanvasTexture(bakeCV);
+  finalTex.wrapS = THREE.RepeatWrapping;
+  finalTex.wrapT = THREE.RepeatWrapping;
+  finalTex.repeat.set(1, 1);   // bake already contains all n×n tiles
+  finalTex.anisotropy   = maxAniso;
+  finalTex.magFilter    = THREE.LinearFilter;
+  finalTex.minFilter    = THREE.LinearMipmapLinearFilter;
+  finalTex.generateMipmaps = true;
+  finalTex.needsUpdate  = true;
+
+  return new THREE.MeshStandardMaterial({
+    map:       finalTex,
+    roughness: td.rough || 0.3,
+    metalness: td.metal || 0.05,
+  });
+}
+
+// ── buildProceduralMat: built-in tile canvas drawing ──
+function buildProceduralMat(s, td, maxAniso) {
+  var size   = 512;
+  var n      = s.scale;
   var tilePx = size / n;
   var groutW = Math.max(2, tilePx * 0.07);
 
-  var cv = document.createElement('canvas');
+  var cv  = document.createElement('canvas');
   cv.width = cv.height = size;
   var ctx = cv.getContext('2d');
-
-  // If custom image tile — draw image as repeating texture
-  if (td.image) {
-    return makeImageTexture(td.image, s);
-  }
 
   var c1 = numToCSS(td.base);
   var c2 = numToCSS(td.dark);
@@ -818,17 +921,17 @@ function makeTileTexture(surfKey) {
   var veinAlpha = td.vein !== undefined ? td.vein : 0.16;
 
   ctx.fillStyle = s.grout;
-  ctx.fillRect(0,0,size,size);
+  ctx.fillRect(0, 0, size, size);
 
-  function drawTile(tx,ty,tw,th){
-    var gx=tx+groutW,gy=ty+groutW,gw=tw-groutW*2,gh=th-groutW*2;
-    if(gw<1||gh<1)return;
+  function drawTile(tx,ty,tw,th) {
+    var gx=tx+groutW, gy=ty+groutW, gw=tw-groutW*2, gh=th-groutW*2;
+    if(gw<1||gh<1) return;
     var g=ctx.createLinearGradient(gx,gy,gx+gw,gy+gh);
-    g.addColorStop(0,c1);g.addColorStop(0.4,c2);g.addColorStop(0.75,c1);g.addColorStop(1,c2);
-    ctx.fillStyle=g;ctx.fillRect(gx,gy,gw,gh);
+    g.addColorStop(0,c1); g.addColorStop(0.4,c2); g.addColorStop(0.75,c1); g.addColorStop(1,c2);
+    ctx.fillStyle=g; ctx.fillRect(gx,gy,gw,gh);
     ctx.save();
     ctx.globalAlpha=veinAlpha;
-    ctx.strokeStyle=c3;ctx.lineWidth=0.9;
+    ctx.strokeStyle=c3; ctx.lineWidth=0.9;
     var seed=((tx*7)+(ty*13))%97;
     for(var v=0;v<2;v++){
       var ox=((seed*(v+1)*17)%Math.max(1,gw));
@@ -840,316 +943,69 @@ function makeTileTexture(surfKey) {
     }
     ctx.globalAlpha=0.1;
     var hl=ctx.createRadialGradient(gx+gw*0.3,gy+gh*0.25,0,gx+gw*0.5,gy+gh*0.5,Math.max(gw,gh)*0.7);
-    hl.addColorStop(0,'#ffffff');hl.addColorStop(1,'rgba(255,255,255,0)');
-    ctx.fillStyle=hl;ctx.fillRect(gx,gy,gw,gh);
+    hl.addColorStop(0,'#ffffff'); hl.addColorStop(1,'rgba(255,255,255,0)');
+    ctx.fillStyle=hl; ctx.fillRect(gx,gy,gw,gh);
     ctx.restore();
   }
 
   drawPattern(ctx, s.pattern, n, tilePx, drawTile, size);
 
-  var tex=new THREE.CanvasTexture(cv);
-  tex.wrapS=THREE.RepeatWrapping;tex.wrapT=THREE.RepeatWrapping;
-  tex.repeat.set(1,1);tex.needsUpdate=true;
-  return tex;
+  var tex = new THREE.CanvasTexture(cv);
+  tex.wrapS = THREE.RepeatWrapping; tex.wrapT = THREE.RepeatWrapping;
+  tex.anisotropy = maxAniso;
+  tex.repeat.set(1,1); tex.needsUpdate = true;
+
+  return new THREE.MeshStandardMaterial({
+    map:       tex,
+    roughness: td.rough || 0.3,
+    metalness: td.metal || 0.05,
+  });
 }
 
-// ── drawPattern: shared pattern helper for the built-in procedural generator ──
-function drawPattern(ctx,pat,n,tilePx,drawTileFn,size){
-  var row,col;
-  if(pat==='grid'){
+function drawPattern(ctx, pat, n, tilePx, drawTileFn, size) {
+  var row, col;
+  if (pat==='grid') {
     for(row=0;row<n;row++) for(col=0;col<n;col++) drawTileFn(col*tilePx,row*tilePx,tilePx,tilePx);
-  } else if(pat==='brick'){
+  } else if (pat==='brick') {
     var rows=Math.ceil(size/(tilePx*0.5))+2;
     for(row=0;row<rows;row++){
       var off=(row%2===0)?0:tilePx*0.5;
       for(col=-1;col<n+1;col++) drawTileFn(col*tilePx+off,row*tilePx*0.5,tilePx,tilePx*0.5);
     }
-  } else if(pat==='diagonal'){
+  } else if (pat==='diagonal') {
     ctx.save();
-    ctx.translate(size/2,size/2);ctx.rotate(Math.PI/4);ctx.translate(-size/2,-size/2);
+    ctx.translate(size/2,size/2); ctx.rotate(Math.PI/4); ctx.translate(-size/2,-size/2);
     for(row=-2;row<n+3;row++) for(col=-2;col<n+3;col++) drawTileFn(col*tilePx,row*tilePx,tilePx,tilePx);
     ctx.restore();
-  } else if(pat==='herring'){
-    var bw=tilePx*0.5,bh=tilePx;
-    var cols2=Math.ceil(size/bw)+4,rows2=Math.ceil(size/bh)+4;
+  } else if (pat==='herring') {
+    var bw=tilePx*0.5, bh=tilePx;
+    var cols2=Math.ceil(size/bw)+4, rows2=Math.ceil(size/bh)+4;
     for(row=-2;row<rows2;row++){
       for(col=-2;col<cols2;col++){
         ctx.save();
-        var cx=col*bw+bw/2,cy=row*bh+bh/2;
+        var cx=col*bw+bw/2, cy=row*bh+bh/2;
         ctx.translate(cx,cy);
-        if((col+row)%2===0){drawTileFn(-bh/2,-bw/2,bh,bw);}
-        else{ctx.rotate(Math.PI/2);drawTileFn(-bh/2,-bw/2,bh,bw);}
+        if((col+row)%2===0){ drawTileFn(-bh/2,-bw/2,bh,bw); }
+        else { ctx.rotate(Math.PI/2); drawTileFn(-bh/2,-bw/2,bh,bw); }
         ctx.restore();
       }
     }
   }
 }
 
-// ── makeGroutOverlayTex: draws ONLY grout lines on transparent bg ──
-// Returns a CanvasTexture sized 1024×1024 with grout lines for n×n tiles.
-// White = grout, black = tile area. Use as alphaMap trick or direct overlay.
-function makeGroutCanvas(s) {
-  // We render a single-tile grout mask then let Three.js repeat it.
-  // Single tile = 1×1 UV, repeated n times → we draw exactly one tile's worth of grout border.
-  var RES = 512; // resolution of one tile mask
-  var cv = document.createElement('canvas');
-  cv.width = cv.height = RES;
-  var ctx = cv.getContext('2d');
-
-  // Determine grout fraction based on scale (fewer big tiles = thicker grout looks)
-  var groutFrac = 0.055; // 5.5% of tile = grout on each edge
-
-  var pat = s.pattern;
-
-  if (pat === 'grid' || pat === 'diagonal') {
-    // Fill tile area white (visible), grout border black
-    ctx.fillStyle = '#000000';
-    ctx.fillRect(0,0,RES,RES);
-    var g = Math.round(RES * groutFrac);
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(g, g, RES - g*2, RES - g*2);
-
-  } else if (pat === 'brick') {
-    // Brick: one tile = full width × half height
-    // We'll render a 2-row brick unit so the offset stitches correctly
-    ctx.fillStyle = '#000000';
-    ctx.fillRect(0,0,RES,RES);
-    var g2 = Math.round(RES * groutFrac);
-    var halfH = Math.floor(RES/2);
-    // Row 0: full tile
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(g2, g2, RES - g2*2, halfH - g2*2);
-    // Row 1: half offset — draw two halves
-    ctx.fillRect(0,        halfH + g2, RES/2 - g2,     halfH - g2*2);
-    ctx.fillRect(RES/2 + g2, halfH + g2, RES/2 - g2,   halfH - g2*2);
-
-  } else if (pat === 'herring') {
-    // For herringbone draw two alternating bricks per tile
-    ctx.fillStyle = '#000000';
-    ctx.fillRect(0,0,RES,RES);
-    var g3 = Math.round(RES * groutFrac);
-    var hw = Math.floor(RES/2);
-    // Vertical brick left
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(g3, g3, hw - g3*2, RES - g3*2);
-    // Horizontal brick right (rotated 90°)
-    ctx.save();
-    ctx.translate(hw + hw/2, RES/2);
-    ctx.rotate(Math.PI/2);
-    ctx.fillRect(-hw/2 + g3, -RES/2 + g3, hw - g3*2, RES - g3*2);
-    ctx.restore();
-  }
-
-  return cv;
-}
-
-// ── buildMat: core material builder ──
-// For custom image tiles: use the image directly as map (native GPU tiling, zero resampling)
-// + a grout overlay composited by drawing grout lines on a separate canvas and blending.
-// For built-in procedural tiles: use the existing canvas-drawn texture.
-function buildMat(surfKey) {
-  var s   = surfaces[surfKey];
-  var td  = getTileById(s.tileId) || TILES[0];
-  var maxAniso = renderer ? renderer.capabilities.getMaxAnisotropy() : 1;
-
-  if (td.image) {
-    // ── IMAGE PATH: pixel-perfect, zero resampling ──
-    // 1. Native image texture, repeated n×n times across the surface
-    var imgTex = new THREE.CanvasTexture(td.image);
-    imgTex.wrapS = THREE.RepeatWrapping;
-    imgTex.wrapT = THREE.RepeatWrapping;
-    imgTex.repeat.set(s.scale, s.scale);
-    imgTex.anisotropy = maxAniso;
-    imgTex.magFilter  = THREE.LinearFilter;
-    imgTex.minFilter  = THREE.LinearMipmapLinearFilter;
-    imgTex.generateMipmaps = true;
-    imgTex.needsUpdate = true;
-
-    // 2. Grout overlay: single-tile grout mask repeated the same n times
-    var groutCV  = makeGroutCanvas(s);
-    var groutTex = new THREE.CanvasTexture(groutCV);
-    groutTex.wrapS = THREE.RepeatWrapping;
-    groutTex.wrapT = THREE.RepeatWrapping;
-    groutTex.repeat.set(s.scale, s.scale);
-    groutTex.anisotropy = maxAniso;
-    groutTex.needsUpdate = true;
-
-    // 3. Combine: use a small canvas to bake image + grout mask into final texture
-    //    We bake at 1024×1024 — one full-surface atlas — maximum quality
-    var BAKE = 1024;
-    var bakeCV  = document.createElement('canvas');
-    bakeCV.width = bakeCV.height = BAKE;
-    var bctx = bakeCV.getContext('2d');
-
-    var n       = s.scale;
-    var cellPx  = BAKE / n; // pixels per tile cell in bake canvas
-    var groutPx = Math.max(1.5, cellPx * 0.055); // grout width in pixels
-
-    // Parse grout hex → rgba string
-    var gr = parseInt(s.grout.slice(1,3),16);
-    var gg = parseInt(s.grout.slice(3,5),16);
-    var gb = parseInt(s.grout.slice(5,7),16);
-    var groutRGBA = 'rgba('+gr+','+gg+','+gb+',1)';
-
-    // Disable smoothing for crisp image upscale
-    bctx.imageSmoothingEnabled  = true;
-    bctx.imageSmoothingQuality  = 'high';
-
-    // Helper: draw one tile at (tx,ty) size (tw×th)
-    function bakeCell(tx,ty,tw,th,rotated) {
-      var gx = tx+groutPx, gy = ty+groutPx;
-      var gw = tw-groutPx*2, gh = th-groutPx*2;
-      if(gw<1||gh<1) return;
-      bctx.save();
-      bctx.beginPath(); bctx.rect(gx,gy,gw,gh); bctx.clip();
-      if(rotated){
-        // Draw image rotated 90° inside cell — for herringbone alternate tiles
-        bctx.translate(gx+gw/2, gy+gh/2);
-        bctx.rotate(Math.PI/2);
-        bctx.drawImage(td.image, 0,0,td.image.width,td.image.height, -gh/2,-gw/2, gh, gw);
-      } else {
-        bctx.drawImage(td.image, 0,0,td.image.width,td.image.height, gx,gy,gw,gh);
-      }
-      bctx.restore();
-    }
-
-    // Fill grout colour everywhere first
-    bctx.fillStyle = groutRGBA;
-    bctx.fillRect(0,0,BAKE,BAKE);
-
-    // Draw tiles according to pattern
-    var pat = s.pattern;
-    var row, col;
-
-    if (pat === 'grid') {
-      for(row=0;row<n;row++)
-        for(col=0;col<n;col++)
-          bakeCell(col*cellPx, row*cellPx, cellPx, cellPx, false);
-
-    } else if (pat === 'brick') {
-      var brickH = cellPx * 0.5;
-      var brows  = Math.ceil(BAKE/brickH)+2;
-      for(row=0;row<brows;row++){
-        var off2=(row%2===0)?0:cellPx*0.5;
-        for(col=-1;col<n+1;col++)
-          bakeCell(col*cellPx+off2, row*brickH, cellPx, brickH, false);
-      }
-
-    } else if (pat === 'diagonal') {
-      bctx.save();
-      bctx.translate(BAKE/2,BAKE/2); bctx.rotate(Math.PI/4); bctx.translate(-BAKE/2,-BAKE/2);
-      for(row=-2;row<n+3;row++)
-        for(col=-2;col<n+3;col++)
-          bakeCell(col*cellPx, row*cellPx, cellPx, cellPx, false);
-      bctx.restore();
-
-    } else if (pat === 'herring') {
-      var hbw=cellPx*0.5, hbh=cellPx;
-      var hcols=Math.ceil(BAKE/hbw)+4, hrows=Math.ceil(BAKE/hbh)+4;
-      for(row=-2;row<hrows;row++){
-        for(col=-2;col<hcols;col++){
-          bctx.save();
-          var cx2=col*hbw+hbw/2, cy2=row*hbh+hbh/2;
-          bctx.translate(cx2,cy2);
-          var rotThisCell=((col+row)%2!==0);
-          if(!rotThisCell){ bakeCell(-hbh/2,-hbw/2,hbh,hbw,false); }
-          else { bctx.rotate(Math.PI/2); bakeCell(-hbh/2,-hbw/2,hbh,hbw,false); }
-          bctx.restore();
-        }
-      }
-    }
-
-    // Redraw grout lines ON TOP so they're always sharp and consistent
-    bctx.fillStyle = groutRGBA;
-    if (pat === 'grid') {
-      for(row=0;row<=n;row++){ bctx.fillRect(0, row*cellPx-groutPx/2, BAKE, groutPx); }
-      for(col=0;col<=n;col++){ bctx.fillRect(col*cellPx-groutPx/2, 0, groutPx, BAKE); }
-
-    } else if (pat === 'brick') {
-      var brickH2=cellPx*0.5;
-      var tbrows=Math.ceil(BAKE/brickH2)+2;
-      for(row=0;row<=tbrows;row++){ bctx.fillRect(0,row*brickH2-groutPx/2,BAKE,groutPx); }
-      for(row=0;row<tbrows;row++){
-        var rowOff=(row%2===0)?0:cellPx*0.5;
-        for(col=-1;col<=n+1;col++){ bctx.fillRect(col*cellPx+rowOff-groutPx/2,row*brickH2,groutPx,brickH2+groutPx); }
-      }
-
-    } else if (pat === 'diagonal') {
-      // diagonal grout: same lines but rotated
-      bctx.save();
-      bctx.translate(BAKE/2,BAKE/2);bctx.rotate(Math.PI/4);bctx.translate(-BAKE/2,-BAKE/2);
-      for(row=0;row<=n+4;row++){ bctx.fillRect(0,(row-2)*cellPx-groutPx/2,BAKE,groutPx);}
-      for(col=0;col<=n+4;col++){ bctx.fillRect((col-2)*cellPx-groutPx/2,0,groutPx,BAKE);}
-      bctx.restore();
-
-    } else if (pat === 'herring') {
-      // herringbone grout lines drawn as thin overlay over the whole bake
-      var hbw2=cellPx*0.5, hbh2=cellPx;
-      var hhrows=Math.ceil(BAKE/hbh2)+4, hhcols=Math.ceil(BAKE/hbw2)+4;
-      for(row=-2;row<hhrows;row++){
-        for(col=-2;col<hhcols;col++){
-          bctx.save();
-          var cx3=col*hbw2+hbw2/2, cy3=row*hbh2+hbh2/2;
-          bctx.translate(cx3,cy3);
-          // Draw border rect for this cell
-          var hw3=hbh2/2, hh3=hbw2/2;
-          if((col+row)%2===0){
-            bctx.strokeStyle=groutRGBA;bctx.lineWidth=groutPx*2;
-            bctx.strokeRect(-hw3,-hh3,hbh2,hbw2);
-          } else {
-            bctx.rotate(Math.PI/2);
-            bctx.strokeStyle=groutRGBA;bctx.lineWidth=groutPx*2;
-            bctx.strokeRect(-hw3,-hh3,hbh2,hbw2);
-          }
-          bctx.restore();
-        }
-      }
-    }
-
-    var finalTex = new THREE.CanvasTexture(bakeCV);
-    finalTex.wrapS = THREE.RepeatWrapping;
-    finalTex.wrapT = THREE.RepeatWrapping;
-    finalTex.repeat.set(1,1);
-    finalTex.anisotropy  = maxAniso;
-    finalTex.magFilter   = THREE.LinearFilter;
-    finalTex.minFilter   = THREE.LinearMipmapLinearFilter;
-    finalTex.generateMipmaps = true;
-    finalTex.needsUpdate = true;
-
-    return new THREE.MeshStandardMaterial({
-      map:       finalTex,
-      roughness: td.rough || 0.3,
-      metalness: td.metal || 0.05,
-    });
-
-  } else {
-    // ── BUILT-IN PROCEDURAL PATH ── (unchanged)
-    var tex = makeTileTexture(surfKey);
-    return new THREE.MeshStandardMaterial({
-      map:       tex,
-      roughness: td.rough || 0.3,
-      metalness: td.metal || 0.05,
-    });
-  }
-}
-
 function refreshSurf(surfKey){
-  var mesh=surfMeshes[surfKey];
-  if(!mesh)return;
-  if(mesh.material.map){mesh.material.map.dispose();}
-  mesh.material.dispose();
-  mesh.material=buildMat(surfKey);
+  var mesh = surfMeshes[surfKey];
+  if (!mesh) return;
+  if (mesh.material && mesh.material.map) { mesh.material.map.dispose(); }
+  if (mesh.material) { mesh.material.dispose(); }
+  mesh.material = buildMat(surfKey);
 }
 
 // =========================================================
 //  TILE HELPERS
 // =========================================================
-function getTileById(id){
-  return TILES.find(function(t){return t.id===id;})||null;
-}
-function getSelectedTile(){
-  return getTileById(selectedTileId);
-}
+function getTileById(id){ return TILES.find(function(t){return t.id===id;})||null; }
+function getSelectedTile(){ return getTileById(selectedTileId); }
 
 // =========================================================
 //  ORBIT
@@ -1198,12 +1054,12 @@ function applyOrbit(){
 function animate(){requestAnimationFrame(animate);applyOrbit();renderer.render(scene,camera);}
 
 // =========================================================
-//  UI — TILE LIST RENDER
+//  UI — TILE LIST
 // =========================================================
 function renderTileList(){
   var list=document.getElementById('tile-list');
   list.innerHTML='';
-  TILES.forEach(function(td,idx){
+  TILES.forEach(function(td){
     var el=document.createElement('div');
     el.className='tc'+(td.id===surfaces[activeSurf].tileId?' sel':'');
     el.id='tc-'+td.id;
@@ -1214,7 +1070,8 @@ function renderTileList(){
 
     if(td.image){
       var img=document.createElement('img');
-      img.src=td.thumbSrc||'';img.style.cssText='width:100%;height:100%;object-fit:cover';
+      img.src=td.thumbSrc||'';
+      img.style.cssText='width:100%;height:100%;object-fit:cover';
       prevDiv.appendChild(img);
     } else {
       var cv=document.createElement('canvas');
@@ -1259,7 +1116,6 @@ function deleteTile(id){
   var idx=TILES.findIndex(function(t){return t.id===id;});
   if(idx<0)return;
   TILES.splice(idx,1);
-  // replace any surface using this tile
   Object.keys(surfaces).forEach(function(k){
     if(surfaces[k].tileId===id) surfaces[k].tileId=TILES[0].id;
   });
@@ -1306,7 +1162,7 @@ function selectTile(id){
 }
 
 // =========================================================
-//  UI — UPDATE CUSTOM PANEL
+//  UI — CUSTOM PANEL
 // =========================================================
 function updateCustomPanel(){
   var td=getSelectedTile();
@@ -1314,7 +1170,6 @@ function updateCustomPanel(){
   document.getElementById('tile-name-input').value=td.name;
   document.getElementById('sel-tile-badge').textContent=td.type==='custom'?'CUSTOM':'BUILT-IN';
 
-  // Color tab
   if(!td.image){
     var c1=numToCSS(td.base),c2=numToCSS(td.dark),c3=numToCSS(td.light);
     document.getElementById('swatch-base').style.background=c1;
@@ -1328,7 +1183,6 @@ function updateCustomPanel(){
     document.getElementById('hex-light').value=c3;
   }
 
-  // Material tab
   var roughVal=Math.round((td.rough||0.3)*100);
   var metalVal=Math.round((td.metal||0.05)*100);
   var veinVal=Math.round((td.vein||0.16)*100);
@@ -1339,12 +1193,10 @@ function updateCustomPanel(){
   document.getElementById('sl-vein').value=veinVal;
   document.getElementById('sv-vein').textContent=(veinVal/100).toFixed(2);
 
-  // Finish
   ['polished','matte','satin'].forEach(function(f){
     document.getElementById('fin-'+f).classList.toggle('active',td.finish===f);
   });
 
-  // Preview
   updateLargePreview(td);
 }
 
@@ -1372,7 +1224,7 @@ function updateLargePreview(td){
 }
 
 // =========================================================
-//  UI — COLOR UPDATES
+//  UI — COLORS
 // =========================================================
 function updateTileColor(which,hex){
   var td=getSelectedTile();if(!td||td.image)return;
@@ -1482,11 +1334,9 @@ function hexGroutInput(val){
 
 function syncGroutUI(hex){
   document.querySelectorAll('.gd').forEach(function(d){
-    d.classList.toggle('active',d.style.background===hexToCSSRGB(hex)||rgbToHex(d.style.background)===hex.toLowerCase());
+    d.classList.toggle('active', rgbToHex(d.style.background)===hex.toLowerCase());
   });
 }
-
-function hexToCSSRGB(h){return h;} // simplified
 
 function rgbToHex(rgb){
   if(!rgb)return'';
@@ -1496,7 +1346,7 @@ function rgbToHex(rgb){
 }
 
 // =========================================================
-//  UI — RENAME TILE
+//  UI — RENAME
 // =========================================================
 function renameTile(name){
   var td=getSelectedTile();if(!td)return;
@@ -1546,41 +1396,60 @@ function applyPalette(p){
 }
 
 // =========================================================
-//  UI — UPLOAD
+//  UI — UPLOAD  ← THE CORE FIX IS HERE
 // =========================================================
 function handleUpload(files){
   Array.from(files).forEach(function(file){
-    if(!file.type.match(/image\/(webp|png|jpeg|jpg)/))return;
-    var reader=new FileReader();
-    reader.onload=function(e){
-      var img=new Image();
-      img.onload=function(){
-        // Bake image into a fixed 512x512 canvas stamp — avoids CORS/timing issues with drawImage
-        var stampCV=document.createElement('canvas');
-        stampCV.width=stampCV.height=512;
-        var sctx=stampCV.getContext('2d');
-        sctx.drawImage(img,0,0,512,512);
-        var thumbSrc=stampCV.toDataURL('image/jpeg',0.7);
+    if(!file.type.match(/image\/(webp|png|jpeg|jpg)/)) return;
 
-        var newId='custom-'+Date.now()+'-'+Math.random().toString(36).slice(2);
-        var namePart=file.name.replace(/\.[^.]+$/,'').replace(/[-_]/g,' ');
-        namePart=namePart.charAt(0).toUpperCase()+namePart.slice(1);
+    var reader = new FileReader();
+    reader.onload = function(e){
+      var img = new Image();
+      img.onload = function(){
+        // Stamp to a fixed 512×512 canvas — this becomes the source image
+        // for the 3D texture. Each tile cell in the 3D scene will draw
+        // EXACTLY this full image (not a shrunken sub-region of a larger atlas).
+        var stampCV = document.createElement('canvas');
+        stampCV.width  = 512;
+        stampCV.height = 512;
+        var sctx = stampCV.getContext('2d');
+        sctx.imageSmoothingEnabled = true;
+        sctx.imageSmoothingQuality = 'high';
+        // Draw the uploaded image stretched to fill 512×512,
+        // preserving all detail at the stamp resolution.
+        sctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, 512, 512);
+
+        // Thumbnail for the UI panel (44×44 JPEG)
+        var thumbSrc = stampCV.toDataURL('image/jpeg', 0.85);
+
+        var newId = 'custom-'+Date.now()+'-'+Math.random().toString(36).slice(2);
+        var namePart = file.name.replace(/\.[^.]+$/,'').replace(/[-_]/g,' ');
+        namePart = namePart.charAt(0).toUpperCase() + namePart.slice(1);
+
         TILES.push({
-          id:newId,
-          name:namePart,
-          sub:'Custom · Uploaded',
-          type:'custom',
-          base:0xd4c5a9,dark:0xb8a888,light:0xf0e8d8,
-          rough:0.3,metal:0.05,vein:0.16,finish:'satin',
-          image:stampCV,
-          thumbSrc:thumbSrc
+          id:       newId,
+          name:     namePart,
+          sub:      'Custom · Uploaded',
+          type:     'custom',
+          // These colour fields are unused for image tiles but kept for
+          // palette/procedural fallback if image is ever stripped.
+          base:     0xd4c5a9,
+          dark:     0xb8a888,
+          light:    0xf0e8d8,
+          rough:    0.3,
+          metal:    0.05,
+          vein:     0.16,
+          finish:   'satin',
+          image:    stampCV,   // <-- full 512×512 canvas, used directly by buildImageMat
+          thumbSrc: thumbSrc,  // <-- compressed thumbnail for panel previews
         });
+
         renderTileList();
         selectTile(newId);
         showToast('✓ "'+namePart+'" added to collection');
       };
-      img.onerror=function(){ showToast('⚠ Could not load image'); };
-      img.src=e.target.result;
+      img.onerror = function(){ showToast('⚠ Could not load image'); };
+      img.src = e.target.result;
     };
     reader.readAsDataURL(file);
   });
@@ -1658,7 +1527,7 @@ function showToast(msg){
 }
 
 // =========================================================
-//  EXPORT SNAPSHOT
+//  EXPORT
 // =========================================================
 function exportSnapshot(){
   var link=document.createElement('a');
@@ -1671,7 +1540,7 @@ function exportSnapshot(){
 // =========================================================
 //  BOOT
 // =========================================================
-window.addEventListener('load',init);
+window.addEventListener('load', init);
 </script>
 </body>
 </html>
